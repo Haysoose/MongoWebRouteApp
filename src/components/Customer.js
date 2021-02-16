@@ -2,6 +2,20 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+const Div = styled.div`
+    text-align: center;
+`
+
+const Button = styled.button`
+    width: 50%;
+    height: 4vh;    
+    color: white;
+    background-color: #3a5896;
+    text-align: center;
+    border-radius: 1vh;
+    font-size: 0.75rem;
+`
+
 const Td = styled.td`
     border: 1px solid black;
     background-color: #FFFFFF;
@@ -10,6 +24,16 @@ const Td = styled.td`
 `
 
 export default class Customer extends Component {
+    constructor(props){
+        super(props);
+        this.handleClick = this.handleClick.bind(this);
+    }
+
+    handleClick(event) {
+        event.preventDefault();
+        this.props.editCustomer(this.props.name, this.props.street, this.props.city, this.props.state, this.props.zip, this.props.phone, this.props.contact, this.props.bottle, this.props.water, this.props.route);
+    }
+
     render() {
         return (
             <tr>
@@ -23,6 +47,11 @@ export default class Customer extends Component {
                 <Td>{this.props.bottle}</Td>
                 <Td>{this.props.water}</Td>
                 <Td>{this.props.route}</Td>
+                <Td>
+                    <Div>
+                        <Button onClick={this.handleClick}>Edit Customer</Button>
+                    </Div>
+                </Td>
             </tr>
         )
     }

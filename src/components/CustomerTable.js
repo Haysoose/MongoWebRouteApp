@@ -2,6 +2,11 @@ import React, { Component } from 'react'
 import styled from 'styled-components';
 import Customer from './Customer';
 
+const P = styled.p`
+    color: black;
+    font-size: 1rem;
+`
+
 const Select = styled.select`
     width: 100%;
     padding: 12px 20px;
@@ -50,6 +55,7 @@ export default class CustomerTable extends Component {
         super(props);
         this.handleRouteClick = this.handleRouteClick.bind(this);
         this.handleAddClick = this.handleAddClick.bind(this);
+        this.handleEditClick = this.handleEditClick.bind(this);
         this.handleAllClick = this.handleAllClick.bind(this);
     }
 
@@ -72,6 +78,19 @@ export default class CustomerTable extends Component {
         const newCustomerWater = document.getElementById("water");
         const newCustomerRoute = document.getElementById("newRoute");
         this.props.addCustomer(newCustomerName.value, newCustomerStreet.value, newCustomerCity.value, newCustomerState.value, newCustomerZip.value, newCustomerPhone.value, newCustomerContact.value, newCustomerBottle.value, newCustomerWater.value, newCustomerRoute.value);
+    }
+
+    handleEditClick(event) {
+        event.preventDefault();
+        const customerSelected = document.getElementById('nameSelect');
+        const newCustomerName = document.getElementById('updatedName');
+        const newCustomerStreet = document.getElementById("updatedStreet");
+        const newCustomerCity = document.getElementById("updatedCity");
+        const newCustomerState = document.getElementById("updatedState");
+        const newCustomerZip = document.getElementById("updatedZip");
+        const newCustomerPhone = document.getElementById("updatedPhone");
+        const newCustomerContact = document.getElementById("updatedContact");
+        this.props.editCustomer(customerSelected.value, newCustomerName.value, newCustomerStreet.value, newCustomerCity.value, newCustomerState.value, newCustomerZip.value, newCustomerPhone.value, newCustomerContact.value);
     }
 
     handleAllClick(event) {
@@ -104,8 +123,6 @@ export default class CustomerTable extends Component {
                 <Input id="city" placeholder="City"></Input>
                 <Input id="state" placeholder="State"></Input>
                 <Input id="zip" placeholder="Zip"></Input>
-                </Div>
-                <Div>
                 <Input id="phone" placeholder="Phone"></Input>
                 <Input id="contact" placeholder="Contact"></Input>
                 <Select name="bottle" id="bottle">
@@ -131,7 +148,92 @@ export default class CustomerTable extends Component {
                 </Select>
                 </Div>
                 <Div>
-                <Button onClick={this.handleAddClick}>Add Customer</Button>
+                <H5>Edit Customer</H5>
+                <P>Select Customer To Edit</P>
+                <Select name="nameSelect" id="nameSelect">
+                    <option value="1280 West Peachtree Partners">1280 West Peachtree</option>
+                    <option value="The American Hotel">American Hotel</option>
+                    <option value="Analytical Environment (P)">Analytical Environment P</option>
+                    <option value="Analytical Environment (T)">Analytical Environment T</option>
+                    <option value="Atlanta Athletic Club">Atlanta Athletic Club</option>
+                    <option value="Atlanta History Center">Atlanta History Center</option>
+                    <option value="Atlanta Life">Atlanta Life</option>
+                    <option value="Beautifully You">Beautifully You</option>
+                    <option value="Bold American #1">Bold American #1</option>
+                    <option value="Bold American #2">Bold American #2</option>
+                    <option value="Bova">Bova</option>
+                    <option value="The Buckhead Club">Buckhead Club</option>
+                    <option value="Buckhead Plastic Surgery">Buckhead Plastic Surgery</option>
+                    <option value="Cactus Car Wash">Cactus Car Wash</option>
+                    <option value="Cherokee Town And Country Club">Cherokee Town And Country Club</option>
+                    <option value="Club At Longview (Q)">Club At Longview Q</option>
+                    <option value="Club At Longview (U)">Club At Longview U</option>
+                    <option value="Club Platinum">Club Platinum</option>
+                    <option value="The Commerce Club">Commerce Club</option>
+                    <option value="Dunson Dental Design">Dunson Dental Design</option>
+                    <option value="Dunwoody Country Club">Dunwoody Country Club</option>
+                    <option value="E 48th St Market">E 48th St Market</option>
+                    <option value="Eastern National Kennesaw">Eastern National Kennesaw</option>
+                    <option value="Eastern National MLK">Eastern National MLK</option>
+                    <option value="Easy Rental">Easy Rental</option>
+                    <option value="The Georgian Terrace (R)">Georgian Terrace R</option>
+                    <option value="The Georgian Terrace (V)">Georgian Terrace V</option>
+                    <option value="Glenn Hotel (P)">Glenn Hotel P</option>
+                    <option value="Glenn Hotel (T)">Glenn Hotel T</option>
+                    <option value="Goldstein Dental">Goldstein Dental</option>
+                    <option value="Golf Club of Tennessee">Golf Club of Tennessee</option>
+                    <option value="Guffey's Cleaners (R)">Guffey's Cleaners R</option>
+                    <option value="Guffey's Cleaners (V)">Guffey's Cleaners V</option>
+                    <option value="Guffey's Store (R)">Guffey's Store R</option>
+                    <option value="Guffey's Store (V)">Guffey's Store V</option>
+                    <option value="Henri's Bakery Buckhead">Henri's Bakery Buckhead</option>
+                    <option value="Henri's Bakery Marietta">Henri's Bakery Marietta</option>
+                    <option value="Herni's Midtown">Herni's Midtown</option>
+                    <option value="Henri's Bakery Sandy Springs">Henri's Bakery Sandy Springs</option>
+                    <option value="Hotel Ballast">Hotel Ballast</option>
+                    <option value="Istanblu">Istanblu</option>
+                    <option value="Johnson And Freeman LLC">Johnson And Freeman LLC</option>
+                    <option value="Le Meridien">Le Meridien</option>
+                    <option value="Mall of Georgia Mazda">Mall of Georgia Mazda</option>
+                    <option value="Mall of Georgia Mini">Mall of Georgia Mini</option>
+                    <option value="Muss And Turner's">Muss And Turner's</option>
+                    <option value="Dr Peter A Pate, DDS">Peter Pate DDS</option>
+                    <option value="Pure Atlanta">Pure Atlanta</option>
+                    <option value="RBM of Alpharetta">RBM of Alpharetta</option>
+                    <option value="RBM of Atlanta">RBM of Atlanta</option>
+                    <option value="Riverclub Golf">Riverclub Golf</option>
+                    <option value="Roswell Provisions">Roswell Provisions</option>
+                    <option value="Savory Gourmet">Savory Gourmet</option>
+                    <option value="Scottsdale Farms">Scottsdale Farms</option>
+                    <option value="Souper Jenny Brookhaven">Souper Jenny Brookhaven</option>
+                    <option value="Souper Jenny Buckhead">Souper Jenny Buckhead</option>
+                    <option value="Souper Jenny Decatur">Souper Jenny Decatur</option>
+                    <option value="Souper Jenny Roswell">Souper Jenny Roswell</option>
+                    <option value="Souper Jenny West Side">Souper Jenny West Side</option>
+                    <option value="Spinal Check Foundation">Spinal Check Foundation</option>
+                    <option value="St. Ive's Country Club">St. Ive's Country Club</option>
+                    <option value="St. Marlo Country Club">St. Marlo Country Club</option>
+                    <option value="Summit Chase Country Club">Summit Chase Country Club</option>
+                    <option value="Sun In My Belly (P)">Sun In My Belly P</option>
+                    <option value="Sun In My Belly (T)">Sun In My Belly T</option>
+                    <option value="Watkins Funeral Home">Watkins Funeral Home</option>
+                    <option value="Winship Cancer Institute">Winship Cancer Institute</option>
+                    <option value="Woodstock Furniture Acworth">Woodstock Furniture Acworth</option>
+                    <option value="Woodstock Furniture Hiram">Buckhead Club</option>
+                    <option value="Worthmore Jewelers Atlanta">Worthmore Jewelers Atlanta</option>
+                    <option value="Worthmore Jewelers Decatur">Worthmore Jewelers Decatur</option>
+                </Select>
+                <P>Make Changes to Selected Customer</P>
+                <Input id="updatedName" placeholder="Name"></Input>
+                <Input id="updatedStreet" placeholder="Street"></Input>
+                <Input id="updatedCity" placeholder="City"></Input>
+                <Input id="updatedState" placeholder="State"></Input>
+                <Input id="updatedZip" placeholder="Zip"></Input>
+                <Input id="updatedPhone" placeholder="Phone"></Input>
+                <Input id="updatedContact" placeholder="Contact"></Input>
+                </Div>
+                <Div>
+                <Button onClick={this.handleEditClick}>Confirm Edit To Customer</Button>
                 </Div>
             <Table>
                 <thead>
@@ -161,7 +263,9 @@ export default class CustomerTable extends Component {
                                         contact={value.contact}
                                         bottle={value.bottle}
                                         water={value.water}
-                                        route={value.route} />
+                                        route={value.route} 
+                                        editCustomer={this.props.editCustomer}
+                                        />
                             )
                     }
                 </tbody>

@@ -14,24 +14,26 @@ const customers = mongodb.db("Route").collection("Customers");
 const tickets = mongodb.db("Route").collection("Tickets");
 const products = mongodb.db("Route").collection("Production");
 const productionSchedule = mongodb.db("Route").collection("ProductionSchedule");
+const apiKey = '83y9sgdnxlWvoWEkd22CtM6YNRRyFjjdOfH0YYZMJSkIlw4drBKLB8EaXNS4XrWU';
 
-// Create a component that displays the given user's details
-/*function UserDetail({ user }) {
-  return (
-    <div>
-      <h1>Logged in with anonymous id: {user.id}</h1>
-    </div>
-  );
-}*/
-
-// Create a component that lets an anonymous user log in
-/*function Login({ setUser }) {
-  const loginAnonymous = async () => {
-    const user = await app.logIn(Realm.Credentials.anonymous());
-    setUser(user);
-  };
-  return <button onClick={loginAnonymous}>Log In</button>;
-}*/
+async function loginApiKey() {
+  // Create an API Key credential
+  const credentials = Realm.Credentials.apiKey(apiKey);
+  try {
+    // Authenticate the user
+    const user = await app.logIn(credentials);
+    // `App.currentUser` updates to match the logged in user
+    if(user.id === app.currentUser.id){
+    console.log(user);
+    }
+    return user
+  } catch(err) {
+    console.error("Failed to log in", err);
+  }
+};
+loginApiKey("To0SQOPC...ZOU0xUYvWw").then(user => {
+  console.log("Successfully logged in!", user)
+});
 
 
 class App extends Component {
@@ -39,6 +41,7 @@ class App extends Component {
     super(props);
     this.showCustomersByRoute = this.showCustomersByRoute.bind(this);
     this.addCustomer = this.addCustomer.bind(this);
+    this.editCustomer = this.editCustomer.bind(this);
     this.showAllCustomers = this.showAllCustomers.bind(this);
     this.showTicketsByCustomer = this.showTicketsByCustomer.bind(this);
     this.showTicketsByNumber = this.showTicketsByNumber.bind(this);
@@ -84,6 +87,35 @@ class App extends Component {
       route: _route
     });
       alert("New Customer '"+_name+"' Added");
+    }
+
+    async editCustomer(_oldName, _name, _street, _city, _state, _zip, _phone, _contact){
+      const oldCustData = await customers.findOne({name: _oldName});
+      if(_name === ""){
+        _name = oldCustData.name;
+      }
+      if(_street === ""){
+        _street = oldCustData.street;
+      }
+      if(_city === ""){
+        _city = oldCustData.city;
+      }
+      if( _state === ""){
+        _state = oldCustData.state;
+      }
+      if(_zip === ""){
+        _zip = oldCustData.zip;
+      }
+      if(_phone === ""){
+        _phone = oldCustData.phone;
+      }
+      if(_contact === ""){
+        _contact = oldCustData.contact;
+      }
+
+      const update = {"$set": {name: _name, street: _street, city: _city, state: _state, zip: _zip, phone: _phone, contact: _contact}};
+      await customers.updateOne({name: _oldName}, update, {"upsert": false});
+      alert("Customer Updated");
     }
 
     async showAllCustomers(){
@@ -224,7 +256,7 @@ class App extends Component {
           <h2>Customers</h2>
         </div>
         <div className = "App-table">
-          <CustomerTable customerData={this.state.customerData} showCustomersByRoute={this.showCustomersByRoute} addCustomer={this.addCustomer} showAllCustomers={this.showAllCustomers}/>
+          <CustomerTable customerData={this.state.customerData} showCustomersByRoute={this.showCustomersByRoute} addCustomer={this.addCustomer} showAllCustomers={this.showAllCustomers} editCustomer={this.editCustomer} />
         </div>
         <div className = "Section-header">
           <h2>Tickets</h2>
