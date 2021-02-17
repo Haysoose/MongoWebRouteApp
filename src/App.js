@@ -6,6 +6,10 @@ import ProductionTable from './components/ProductionTable';
 import ProductionSchedule from './components/ProductionSchedule';
 import print from 'print-js';
 import * as Realm from "realm-web";
+import MainMenu from './components/MainMenu';
+import HomeButton from './components/HomeButton';
+import AddCustomer from './components/AddCustomer';
+import EditCustomer from './components/EditCustomer';
 
 const REALM_APP_ID = "route-app-dmxam"; // e.g. myapp-abcde
 const app = new Realm.App({ id: REALM_APP_ID });
@@ -40,6 +44,7 @@ class App extends Component {
   constructor(props){
     super(props);
     this.showCustomersByRoute = this.showCustomersByRoute.bind(this);
+    this.showCustomerByName = this.showCustomerByName.bind(this);
     this.addCustomer = this.addCustomer.bind(this);
     this.editCustomer = this.editCustomer.bind(this);
     this.showAllCustomers = this.showAllCustomers.bind(this);
@@ -53,7 +58,14 @@ class App extends Component {
     this.removeProduct = this.removeProduct.bind(this);
     this.showProductionSchedule = this.showProductionSchedule.bind(this);
     this.printProductionSchedule = this.printProductionSchedule.bind(this);
+    this.allCustomersPage = this.allCustomersPage.bind(this);
+    this.addCustomerPage = this.addCustomerPage.bind(this);
+    this.editCustomerPage = this.editCustomerPage.bind(this);
+    this.allTicketsPage = this.allTicketsPage.bind(this);
+    this.allProductsPage = this.allProductsPage.bind(this);
+    this.homePage = this.homePage.bind(this);
     this.state = {
+      page: 'home',
       user:[app.currentUser],
       customerData:[],
       ticketData:[],
@@ -65,6 +77,17 @@ class App extends Component {
   async showCustomersByRoute(_route){
     const routeCustomers = await customers.find({route: _route});
     const newCustomerData = await routeCustomers.map(function(values){
+      return(
+        {...values}
+      )
+    });
+    this.setState({customerData: newCustomerData});
+
+  }
+
+  async showCustomerByName(_name){
+    const customerName = await customers.find({name: _name});
+    const newCustomerData = await customerName.map(function(values){
       return(
         {...values}
       )
@@ -245,37 +268,127 @@ class App extends Component {
       });
       print({printable: newProductionScheduleData, properties: ['name', 'bottle', 'water', 'label', 'cases', 'date', 'special instructions'], type: 'json'});
     }
+
+    allCustomersPage(){
+      this.setState({page: 'allCustomers'});
+    }
+
+    addCustomerPage(){
+      this.setState({page: 'addCustomer'});
+    }
+
+    editCustomerPage(){
+      this.setState({page: 'editCustomer'});
+    }
+
+    allTicketsPage(){
+      this.setState({page: 'allTickets'});
+    }
+
+    allProductsPage(){
+      this.setState({page: 'allProducts'});
+    }
+
+    homePage(){
+      this.setState({page: 'home'});
+    }
   
   render(){
+    if(this.state.page === 'allCustomers'){
     return (
       <div className="App">
         <div className="App-header">
-           <h1>Piedmont Springs Routing Software</h1>
+           <h1>Piedmont Springs App</h1>
         </div>
         <div className = "Section-header">
           <h2>Customers</h2>
         </div>
         <div className = "App-table">
-          <CustomerTable customerData={this.state.customerData} showCustomersByRoute={this.showCustomersByRoute} addCustomer={this.addCustomer} showAllCustomers={this.showAllCustomers} editCustomer={this.editCustomer} />
+          <HomeButton homePage={this.homePage} />
+          <CustomerTable customerData={this.state.customerData} showCustomersByRoute={this.showCustomersByRoute} showCustomerByName={this.showCustomerByName} addCustomerPage={this.addCustomerPage} showAllCustomers={this.showAllCustomers} editCustomerPage={this.editCustomerPage} />
         </div>
+        </div>
+        );
+        }
+    if(this.state.page === 'addCustomer'){
+      return (
+        <div className="App">
+          <div className="App-header">
+              <h1>Piedmont Springs App</h1>
+          </div>
+          <div className = "Section-header">
+            <h2>Customers</h2>
+          </div>
+          <div className = "App-table">
+            <HomeButton homePage={this.homePage} />
+            <AddCustomer addCustomer={this.addCustomer} />
+          </div>
+          </div>
+          );
+          }
+    if(this.state.page === 'editCustomer'){
+      return (
+        <div className="App">
+          <div className="App-header">
+              <h1>Piedmont Springs App</h1>
+          </div>
+          <div className = "Section-header">
+            <h2>Customers</h2>
+          </div>
+          <div className = "App-table">
+            <HomeButton homePage={this.homePage} />
+            <EditCustomer addCustomer={this.editCustomer} />
+          </div>
+          </div>
+          );
+          }
+    if(this.state.page === 'allTickets'){
+      return(
+        <div className="App">
+          <div className="App-header">
+            <h1>Piedmont Springs App</h1>
+          </div>
+          <div className = "Section-header">
+            <h2>Tickets</h2>
+          </div>
+          <div className = "App-table">
+            <HomeButton homePage={this.homePage} />
+            <TicketTable ticketData={this.state.ticketData} showTicketsByCustomer={this.showTicketsByCustomer} showTicketsByNumber={this.showTicketsByNumber} addTicket={this.addTicket} showAllTickets={this.showAllTickets} />
+          </div>
+        </div>
+      );
+    }
+    if(this.state.page === 'allProducts'){
+      return(
+        <div className="App">
+          <div className="App-header">
+            <h1>Piedmont Springs App</h1>
+          </div>
         <div className = "Section-header">
-          <h2>Tickets</h2>
+          <h2>Products</h2>
         </div>
         <div className = "App-table">
-          <TicketTable ticketData={this.state.ticketData} showTicketsByCustomer={this.showTicketsByCustomer} showTicketsByNumber={this.showTicketsByNumber} addTicket={this.addTicket} showAllTickets={this.showAllTickets} />
-        </div>
-        <div className = "Section-header">
-          <h2>Production</h2>
-        </div>
-        <div className = "App-table">
+            <HomeButton homePage={this.homePage} />
             <ProductionTable productData={this.state.productData} showProductsByBottle={this.showProductsByBottle} addProduct={this.addProduct} showAllProducts={this.showAllProducts} removeProduct={this.removeProduct}/>
             <ProductionSchedule productionScheduleData={this.state.productionScheduleData} showProductionSchedule={this.showProductionSchedule} printProductionSchedule={this.printProductionSchedule} />
         </div>
-        <div className="Footer">
-          <p>App Made By Hayden Marlowe</p>
         </div>
-      </div>
-    );
+      );
+    }
+    else{
+      return(
+        <div className="App">
+          <div className="App-header">
+            <h1>Piedmont Springs App</h1>
+          </div>
+          <div className = "Section-header">
+            <h2>Home Page</h2>
+          </div>
+            <div className = "App-table"></div>
+            <MainMenu allProductsPage={this.allProductsPage} allCustomersPage={this.allCustomersPage} allTicketsPage={this.allTicketsPage} />
+        </div>
+      )
+    }
   }
 }
 

@@ -1,137 +1,73 @@
 import React, { Component } from 'react'
 import styled from 'styled-components';
-import Customer from './Customer';
 
-const SelectRight = styled.select`
-    width: 50%;
+const P = styled.p`
+    color: black;
+    font-size: 1rem;
+`
+
+const Select = styled.select`
+    width: 75%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
     border: 2px solid #3a5896;
     font-size: 1rem;
-    float: right;
 `
 
-const SelectLeft = styled.select`
-    width: 50%;
+const Input = styled.input`
+    width: 75%;
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
     border: 2px solid #3a5896;
     font-size: 1rem;
-    float: left;
 `
 
-const H5Left = styled.h5`
+const H5 = styled.h5`
     color: black;
-    float: left;
-    width: 50%;
-`
-
-const H5Right = styled.h5`
-    color: black;
-    float: right;
-    width: 50%;
 `
 
 const Button = styled.button`
-    width: 50%;
+    width: 75%;
     height: 4vh;
     color: white;
     background-color: #3a5896;
     text-align: center;
     border-radius: 1vh;
     font-size: 1rem;
-`
-const ButtonRight = styled.button`
-    width: 50%;
-    height: 4vh;
-    color: white;
-    background-color: #3a5896;
-    text-align: center;
-    border-radius: 1vh;
-    font-size: 1rem;
-    float: right;
-`
-const ButtonLeft = styled.button`
-    width: 50%;
-    height: 4vh;
-    color: white;
-    background-color: #3a5896;
-    text-align: center;
-    border-radius: 1vh;
-    font-size: 1rem;
-    float: left;
 `
 
-const DivRow = styled.div`
-    display: flex;
-    flex-direction: row;
-    text-align: center;
-    justify-content: center;
-`
 const Div = styled.div`
     justify-content: center;
 `
 
-const Table = styled.table`
-    margin: 50px auto 50px auto;
-    display: inline-block;
-    font-size: 1.4rem;  
-    color: black;
-`
 
-export default class CustomerTable extends Component {
+export default class EditCustomer extends Component {
     constructor(props){
         super(props);
-        this.handleRouteClick = this.handleRouteClick.bind(this);
-        this.handleNameClick = this.handleNameClick.bind(this);
-        this.handleAddClick = this.handleAddClick.bind(this);
         this.handleEditClick = this.handleEditClick.bind(this);
-        this.handleAllClick = this.handleAllClick.bind(this);
-    }
-
-    handleRouteClick(event) {
-        event.preventDefault();
-        const newRoute = document.getElementById("route");
-        this.props.showCustomersByRoute(newRoute.value);
-    }
-
-    handleNameClick(event) {
-        event.preventDefault();
-        const newName = document.getElementById("nameEdit")
-        this.props.showCustomerByName(newName.value);
-    }
-
-    handleAddClick(event) {
-        event.preventDefault();
-        this.props.addCustomerPage();
     }
 
     handleEditClick(event) {
         event.preventDefault();
-        this.props.editCustomerPage();
-    }
-
-    handleAllClick(event) {
-        event.preventDefault();
-        this.props.showAllCustomers();
+        const customerSelected = document.getElementById('nameSelect');
+        const newCustomerName = document.getElementById('updatedName');
+        const newCustomerStreet = document.getElementById("updatedStreet");
+        const newCustomerCity = document.getElementById("updatedCity");
+        const newCustomerState = document.getElementById("updatedState");
+        const newCustomerZip = document.getElementById("updatedZip");
+        const newCustomerPhone = document.getElementById("updatedPhone");
+        const newCustomerContact = document.getElementById("updatedContact");
+        this.props.editCustomer(customerSelected.value, newCustomerName.value, newCustomerStreet.value, newCustomerCity.value, newCustomerState.value, newCustomerZip.value, newCustomerPhone.value, newCustomerContact.value);
     }
 
     render() {
         return (
             <Div>
-                <Div>
-                    <DivRow>
-                        <ButtonLeft onClick = {this.handleAddClick}>Add A Customer </ButtonLeft>
-                        <ButtonRight onClick = {this.handleEditClick}>Edit A Customer </ButtonRight>
-                    </DivRow>
-                    <DivRow>
-                        <H5Left>Search By Name</H5Left>
-                        <H5Right>Search By Route</H5Right>
-                    </DivRow>
-                    <DivRow>
-                    <SelectLeft name="nameEdit" id="nameEdit">
+                <H5>Edit Customer</H5>
+                <P>Select Customer To Edit</P>
+                <Select name="nameSelect" id="nameSelect">
                     <option value="1280 West Peachtree Partners">1280 West Peachtree</option>
                     <option value="The American Hotel">American Hotel</option>
                     <option value="Analytical Environment (P)">Analytical Environment P</option>
@@ -203,61 +139,17 @@ export default class CustomerTable extends Component {
                     <option value="Woodstock Furniture Hiram">Woodstock Furniture Hiram</option>
                     <option value="Worthmore Jewelers Atlanta">Worthmore Jewelers Atlanta</option>
                     <option value="Worthmore Jewelers Decatur">Worthmore Jewelers Decatur</option>
-                </SelectLeft>
-                        <SelectRight name="route" id="route">
-                            <option value="P">P Route</option>
-                            <option value="Q">Q Route</option>
-                            <option value="R">R Route</option>
-                            <option value="S">S Route</option>
-                            <option value="T">T Route</option>
-                            <option value="U">U Route</option>
-                            <option value="V">V Route</option>
-                            <option value="W">W Route</option>
-                            <option value="Freight">Freight</option>
-                        </SelectRight>
-                    </DivRow>
-                    <DivRow>
-                        <ButtonLeft onClick = {this.handleNameClick}>Show Customers By Name</ButtonLeft>
-                        <ButtonRight onClick = {this.handleRouteClick}>Show Customers By Route</ButtonRight>
-                    </DivRow>
-                </Div>
-            <Table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Street</th>
-                        <th>City</th>
-                        <th>State</th>
-                        <th>Zip Code</th>
-                        <th>Phone Number</th>
-                        <th>Contact</th>
-                        <th>Bottle Size</th>
-                        <th>Water Type</th>
-                        <th>Route</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {
-                        this.props.customerData.map( value =>
-                            <Customer   key={value.name}
-                                        name={value.name}
-                                        street={value.street}
-                                        city={value.city}
-                                        state={value.state}
-                                        zip={value.zip}
-                                        phone={value.phone}
-                                        contact={value.contact}
-                                        bottle={value.bottle}
-                                        water={value.water}
-                                        route={value.route} 
-                                        editCustomer={this.props.editCustomer}
-                                        />
-                            )
-                    }
-                </tbody>
-            </Table>
+                </Select>
+                <P>Make Changes to Selected Customer</P>
+                <Input id="updatedName" placeholder="Name"></Input>
+                <Input id="updatedStreet" placeholder="Street"></Input>
+                <Input id="updatedCity" placeholder="City"></Input>
+                <Input id="updatedState" placeholder="State"></Input>
+                <Input id="updatedZip" placeholder="Zip"></Input>
+                <Input id="updatedPhone" placeholder="Phone"></Input>
+                <Input id="updatedContact" placeholder="Contact"></Input>
             <Div>
-                <Button onClick = {this.handleAllClick}>Show All Customers</Button>
+                <Button onClick={this.handleEditClick}>Confirm Edit To Customer</Button>
             </Div>
             </Div>
         )
