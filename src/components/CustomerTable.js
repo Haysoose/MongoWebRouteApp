@@ -250,7 +250,7 @@ export default class CustomerTable extends Component {
                                         bottle={value.bottle}
                                         water={value.water}
                                         route={value.route} 
-                                        editCustomer={this.props.editCustomer}
+                                        viewCustomer={this.props.viewCustomer}
                                         />
                             )
                     }

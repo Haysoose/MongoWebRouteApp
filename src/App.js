@@ -10,15 +10,12 @@ import MainMenu from './components/MainMenu';
 import HomeButton from './components/HomeButton';
 import AddCustomer from './components/AddCustomer';
 import EditCustomer from './components/EditCustomer';
+import ViewCustomer from './components/ViewCustomer';
+import printJS from 'print-js';
 
+const apiKey = '83y9sgdnxlWvoWEkd22CtM6YNRRyFjjdOfH0YYZMJSkIlw4drBKLB8EaXNS4XrWU';
 const REALM_APP_ID = "route-app-dmxam"; // e.g. myapp-abcde
 const app = new Realm.App({ id: REALM_APP_ID });
-const mongodb = app.currentUser.mongoClient("mongodb-atlas");
-const customers = mongodb.db("Route").collection("Customers");
-const tickets = mongodb.db("Route").collection("Tickets");
-const products = mongodb.db("Route").collection("Production");
-const productionSchedule = mongodb.db("Route").collection("ProductionSchedule");
-const apiKey = '83y9sgdnxlWvoWEkd22CtM6YNRRyFjjdOfH0YYZMJSkIlw4drBKLB8EaXNS4XrWU';
 
 async function loginApiKey() {
   // Create an API Key credential
@@ -39,6 +36,12 @@ loginApiKey("To0SQOPC...ZOU0xUYvWw").then(user => {
   console.log("Successfully logged in!", user)
 });
 
+const mongodb = app.currentUser.mongoClient("mongodb-atlas");
+const customers = mongodb.db("Route").collection("Customers");
+const tickets = mongodb.db("Route").collection("Tickets");
+const products = mongodb.db("Route").collection("Production");
+const productionSchedule = mongodb.db("Route").collection("ProductionSchedule");
+
 
 class App extends Component {
   constructor(props){
@@ -47,6 +50,7 @@ class App extends Component {
     this.showCustomerByName = this.showCustomerByName.bind(this);
     this.addCustomer = this.addCustomer.bind(this);
     this.editCustomer = this.editCustomer.bind(this);
+    this.viewCustomer = this.viewCustomer.bind(this);
     this.showAllCustomers = this.showAllCustomers.bind(this);
     this.showTicketsByCustomer = this.showTicketsByCustomer.bind(this);
     this.showTicketsByNumber = this.showTicketsByNumber.bind(this);
@@ -139,6 +143,12 @@ class App extends Component {
       const update = {"$set": {name: _name, street: _street, city: _city, state: _state, zip: _zip, phone: _phone, contact: _contact}};
       await customers.updateOne({name: _oldName}, update, {"upsert": false});
       alert("Customer Updated");
+    }
+
+    async viewCustomer(_name){
+      this.showCustomerByName(_name)
+      this.showTicketsByCustomer(_name);
+      this.setState({page: 'viewCustomer'});
     }
 
     async showAllCustomers(){
@@ -266,7 +276,7 @@ class App extends Component {
           {...values}
         )
       });
-      print({printable: newProductionScheduleData, properties: ['name', 'bottle', 'water', 'label', 'cases', 'date', 'special instructions'], type: 'json'});
+      printJS({printable: newProductionScheduleData, properties: ['name', 'bottle', 'water', 'label', 'cases', 'date', 'special instructions'], type: 'json'});
     }
 
     allCustomersPage(){
@@ -305,7 +315,7 @@ class App extends Component {
         </div>
         <div className = "App-table">
           <HomeButton homePage={this.homePage} />
-          <CustomerTable customerData={this.state.customerData} showCustomersByRoute={this.showCustomersByRoute} showCustomerByName={this.showCustomerByName} addCustomerPage={this.addCustomerPage} showAllCustomers={this.showAllCustomers} editCustomerPage={this.editCustomerPage} />
+          <CustomerTable customerData={this.state.customerData} showCustomersByRoute={this.showCustomersByRoute} showCustomerByName={this.showCustomerByName} addCustomerPage={this.addCustomerPage} showAllCustomers={this.showAllCustomers} editCustomerPage={this.editCustomerPage} viewCustomer={this.viewCustomer}/>
         </div>
         </div>
         );
@@ -338,6 +348,22 @@ class App extends Component {
           <div className = "App-table">
             <HomeButton homePage={this.homePage} />
             <EditCustomer addCustomer={this.editCustomer} />
+          </div>
+          </div>
+          );
+          }
+    if(this.state.page === 'viewCustomer'){
+      return (
+        <div className="App">
+          <div className="App-header">
+              <h1>Piedmont Springs App</h1>
+          </div>
+          <div className = "Section-header">
+            <h2>Customers</h2>
+          </div>
+          <div className = "App-table">
+            <HomeButton homePage={this.homePage} />
+            <ViewCustomer customerData={this.state.customerData} ticketData={this.state.ticketData}/>
           </div>
           </div>
           );

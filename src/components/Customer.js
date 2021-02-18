@@ -31,7 +31,7 @@ export default class Customer extends Component {
 
     handleClick(event) {
         event.preventDefault();
-        this.props.editCustomer(this.props.name, this.props.street, this.props.city, this.props.state, this.props.zip, this.props.phone, this.props.contact, this.props.bottle, this.props.water, this.props.route);
+        this.props.viewCustomer(this.props.name);
     }
 
     render() {
@@ -49,7 +49,7 @@ export default class Customer extends Component {
                 <Td>{this.props.route}</Td>
                 <Td>
                     <Div>
-                        <Button onClick={this.handleClick}>Edit Customer</Button>
+                        <Button onClick={this.handleClick}>View Customer</Button>
                     </Div>
                 </Td>
             </tr>
