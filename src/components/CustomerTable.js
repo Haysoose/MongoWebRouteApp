@@ -53,6 +53,7 @@ const ButtonRight = styled.button`
     font-size: 1rem;
     float: right;
 `
+
 const ButtonLeft = styled.button`
     width: 50%;
     height: 4vh;

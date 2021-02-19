@@ -11,6 +11,9 @@ import HomeButton from './components/HomeButton';
 import AddCustomer from './components/AddCustomer';
 import EditCustomer from './components/EditCustomer';
 import ViewCustomer from './components/ViewCustomer';
+import AddTicket from './components/AddTicket';
+import EditTicket from './components/EditTicket';
+import PrintRoute from './components/PrintRoute';
 import printJS from 'print-js';
 
 const apiKey = '83y9sgdnxlWvoWEkd22CtM6YNRRyFjjdOfH0YYZMJSkIlw4drBKLB8EaXNS4XrWU';
@@ -54,8 +57,11 @@ class App extends Component {
     this.showAllCustomers = this.showAllCustomers.bind(this);
     this.showTicketsByCustomer = this.showTicketsByCustomer.bind(this);
     this.showTicketsByNumber = this.showTicketsByNumber.bind(this);
+    this.showTicketsByDate = this.showTicketsByDate.bind(this);
     this.addTicket = this.addTicket.bind(this);
+    this.editTicket = this.editTicket.bind(this);
     this.showAllTickets = this.showAllTickets.bind(this);
+    this.printTickets = this.printTickets.bind(this);
     this.showProductsByBottle = this.showProductsByBottle.bind(this);
     this.addProduct = this.addProduct.bind(this);
     this.showAllProducts = this.showAllProducts.bind(this);
@@ -68,6 +74,9 @@ class App extends Component {
     this.allTicketsPage = this.allTicketsPage.bind(this);
     this.allProductsPage = this.allProductsPage.bind(this);
     this.homePage = this.homePage.bind(this);
+    this.addTicketPage = this.addTicketPage.bind(this);
+    this.editTicketPage = this.editTicketPage.bind(this);
+    this.printRoutePage = this.printRoutePage.bind(this);
     this.state = {
       page: 'home',
       user:[app.currentUser],
@@ -184,6 +193,17 @@ class App extends Component {
     
     }
 
+    async showTicketsByDate(_date){
+      const ticketDate = await tickets.find({date: _date});
+      const newTicketData = await ticketDate.map(function(values){
+        return(
+          {...values}
+        )
+      });
+      this.setState({ticketData: newTicketData});
+  
+    }
+
     async addTicket(_customer, _number, _cases, _date){
       await tickets.insertOne({
         customer: _customer,
@@ -204,6 +224,30 @@ class App extends Component {
         )
       });
       this.setState({ticketData: newTicketData});
+
+    }
+
+    async editTicket(_name, _date, _number, _cases){
+      const oldCustData = await tickets.findOne({customer: _name, date: _date});
+      if(_number === ""){
+        _number = oldCustData.qbNumber;
+      }
+      if(_cases === ""){
+        _cases = oldCustData.cases;
+      }
+
+      const update = {"$set": {customer: _name, qbNumber: _number, cases: _cases, date: _date}};
+      await tickets.updateOne({customer: _name, date: _date}, update, {"upsert": false});
+      alert("Ticket Updated");
+    }
+
+    async printTickets(_route){
+      const routeCustomers = await customers.find({route: _route});
+      var i = 0;
+      while(i<routeCustomers.length){
+        console.log(routeCustomers[i].name);//replace this with printing functionality
+        i++;
+      }
 
     }
 
@@ -295,6 +339,18 @@ class App extends Component {
       this.setState({page: 'allTickets'});
     }
 
+    addTicketPage(){
+      this.setState({page: 'addTicket'});
+    }
+
+    editTicketPage(){
+      this.setState({page: 'editTicket'});
+    }
+
+    printRoutePage(){
+      this.setState({page: 'printRoute'});
+    }
+
     allProductsPage(){
       this.setState({page: 'allProducts'});
     }
@@ -379,11 +435,63 @@ class App extends Component {
           </div>
           <div className = "App-table">
             <HomeButton homePage={this.homePage} />
-            <TicketTable ticketData={this.state.ticketData} showTicketsByCustomer={this.showTicketsByCustomer} showTicketsByNumber={this.showTicketsByNumber} addTicket={this.addTicket} showAllTickets={this.showAllTickets} />
+            <TicketTable ticketData={this.state.ticketData} showTicketsByCustomer={this.showTicketsByCustomer} showTicketsByNumber={this.showTicketsByNumber} showTicketsByDate={this.showTicketsByDate} showAllTickets={this.showAllTickets} editTicketPage={this.editTicketPage} addTicketPage={this.addTicketPage} printRoutePage={this.printRoutePage}/>
           </div>
         </div>
       );
     }
+
+    if(this.state.page === 'addTicket'){
+      return (
+        <div className="App">
+          <div className="App-header">
+              <h1>Piedmont Springs App</h1>
+          </div>
+          <div className = "Section-header">
+            <h2>Tickets</h2>
+          </div>
+          <div className = "App-table">
+            <HomeButton homePage={this.homePage} />
+            <AddTicket addTicket={this.addTicket} />
+          </div>
+          </div>
+          );
+    }
+
+    if(this.state.page === 'editTicket'){
+      return (
+        <div className="App">
+          <div className="App-header">
+              <h1>Piedmont Springs App</h1>
+          </div>
+          <div className = "Section-header">
+            <h2>Tickets</h2>
+          </div>
+          <div className = "App-table">
+            <HomeButton homePage={this.homePage} />
+            <EditTicket editTicket={this.editTicket} />
+          </div>
+          </div>
+          );
+    }
+
+    if(this.state.page === 'printRoute'){
+      return (
+        <div className="App">
+          <div className="App-header">
+              <h1>Piedmont Springs App</h1>
+          </div>
+          <div className = "Section-header">
+            <h2>Tickets</h2>
+          </div>
+          <div className = "App-table">
+            <HomeButton homePage={this.homePage} />
+            <PrintRoute printTickets={this.printTickets} />
+          </div>
+          </div>
+          );
+    }
+
     if(this.state.page === 'allProducts'){
       return(
         <div className="App">
