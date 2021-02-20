@@ -132,7 +132,7 @@ export default class AddTicket extends Component {
                     </Select>
                     <Input id="qbNumber" placeholder="Quickbooks Sales Order Number"></Input>
                     <Input id="ticketCases" placeholder="Cases"></Input>
-                    <Input id="ticketDate" placeholder="Date"></Input>
+                    <Input id="ticketDate" placeholder="MM/DD/YY"></Input>
                     <Button onClick = {this.handleClick}>Add Ticket</Button>
                 </Div> </>
         )

@@ -14,6 +14,70 @@ import ViewCustomer from './components/ViewCustomer';
 import AddTicket from './components/AddTicket';
 import EditTicket from './components/EditTicket';
 import PrintRoute from './components/PrintRoute';
+import GlennHotelBOL from './bols/GlennHotelBOL.jpg';
+import SunInMyBellyBOL from './bols/SunInMyBellyBOL.jpg';
+import EasternNationalMLKBOL from './bols/EasternNationalMLKBOL.jpg';
+import AmericanHotelBOL from './bols/AmericanHotelBOL.jpg';
+import CommerceClubBOL from './bols/CommerceClubBOL.jpg';
+import WestPeachtreeBOL from './bols/1280WestPeachtreeBOL.jpg';
+import AnalyticalEnvironmentBOL from './bols/AnalyticalEnvironmentBOL.jpg';
+import HotelBallastBOL from './bols/HotelBallastBOL.jpg';
+import ClubPlatinumBOL from './bols/ClubPlatinumBOL.jpg';
+import AtlantaAthleticClubBOL from './bols/AtlantaAthleticClubBOL.jpg';
+import SummitChaseBOL from './bols/SummitChaseBOL.jpg';
+import StMarloBOL from './bols/StMarloBOL.jpg';
+import StIvesBOL from './bols/StIvesBOL.jpg';
+import BovaBOL from './bols/BovaBOL.jpg';
+import ClubAtLongviewBOL from './bols/ClubAtLongviewBOL.jpg';
+import GolfClubTNBOL from './bols/GolfClubTNBOL.jpg';
+import GuffeysStoreBOL from './bols/GuffeysStoreBOL.jpg';
+import GuffeysCleanersBOL from './bols/GuffeysCleanersBOL.jpg';
+import GeorgianTerraceBOL from './bols/GeorgianTerraceBOL.jpg';
+import BuckheadClubBOL from './bols/BuckheadClubBOL.jpg';
+import SouperJennyBuckheadBOL from './bols/SouperJennyBuckheadBOL.jpg';
+import HenrisBuckheadBOL from './bols/HenrisBuckheadBOL.jpg';
+import WorthmoreJewelersAtlantaBOL from './bols/WorthmoreJewelersAtlantaBOL.jpg';
+import PureAtlantaBOL from './bols/PureAtlantaBOL.jpg';
+import WorthmoreJewelersDecaturBOL from './bols/WorthmoreJewelersDecaturBOL.jpg';
+import RBMofAtlantaBOL from './bols/RBMofAtlantaBOL.jpg';
+import HenrisMariettaBOL from './bols/HenrisMariettaBOL.jpg';
+import WoodstockFurnitureAcworthBOL from './bols/WoodstockFurnitureAcworthBOL.jpg';
+import WoodstockFurnitureHiramBOL from './bols/WoodstockFurnitureHiramBOL.jpg';
+import EasternNationalKennesawBOL from './bols/EasternNationalKennesawBOL.jpg';
+import MussAndTurnersBOL from './bols/MussAndTurnersBOL.jpg';
+import SpinalCheckBOL from './bols/SpinalCheckBOL.jpg';
+import WatkinsFuneralBOL from './bols/WatkinsFuneralBOL.jpg';
+import AtlantaLifeBOL from './bols/AtlantaLifeBOL.jpg';
+import HenrisMidtownBOL from './bols/HenrisMidtownBOL.jpg';
+import SouperJennyWestSideBOL from './bols/SouperJennyWestSideBOL.jpg';
+import JohnsonFreemanBOL from './bols/JohnsonFreemanBOL.jpg';
+import BoldAmerican1BOL from './bols/BoldAmerican1BOL.jpg';
+import BoldAmerican2BOL from './bols/BoldAmerican2BOL.jpg';
+import EasyRentalBOL from './bols/EasyRentalBOL.jpg';
+import BeautifullyYouBOL from './bols/BeautifullyYouBOL.jpg';
+import RBMofAlpharettaBOL from './bols/RBMofAlpharettaBOL.jpg';
+import ScottsdaleFarmsBOL from './bols/ScottsdaleFarmsBOL.jpg';
+import SavoryGourmetBOL from './bols/SavoryGourmetBOL.jpg';
+import CactusCarWashBOL from './bols/CactusCarWashBOL.jpg';
+import SouperJennyRoswellBOL from './bols/SouperJennyRoswellBOL.jpg';
+import CherokeeTownAndCCBOL from './bols/CherokeeTownAndCCBOL.jpg';
+import RoswellProvisionsBOL from './bols/RoswellProvisionsBOL.jpg';
+import WinshipBOL from './bols/WinshipBOL.jpg';
+import GoldsteinDentalBOL from './bols/GoldsteinDentalBOL.jpg';
+import LeMeridienBOL from './bols/LeMeridienBOL.jpg';
+import DunwoodyCCBOL from './bols/DunwoodyCCBOL.jpg';
+import IstanbluBOL from './bols/IstanbluBOL.jpg';
+import SouperJennyBrookhavenBOL from './bols/SouperJennyBrookhavenBOL.jpg';
+import SouperJennyDecaturBOL from './bols/SouperJennyDecaturBOL.jpg';
+import HenrisSandySpringsBOL from './bols/HenrisSandySpringsBOL.jpg';
+import PateDDSBOL from './bols/PateDDSBOL.jpg';
+import AtlantaHistoryCenterBOL from './bols/AtlantaHistoryCenterBOL.jpg';
+import E48thStBOL from './bols/E48thStBOL.jpg';
+import DunsonDentalBOL from './bols/DunsonDentalBOL.jpg';
+import BuckheadPlasticSurgeryBOL from './bols/BuckheadPlasticSurgeryBOL.jpg';
+import MallOfGAMazdaBOL from './bols/MallOfGAMazdaBOL.jpg';
+import MallOfGAMiniBOL from './bols/MallOfGAMiniBOL.jpg';
+import RiverClubGolfBOL from './bols/RiverClubGolfBOL.jpg';
 import printJS from 'print-js';
 
 const apiKey = '83y9sgdnxlWvoWEkd22CtM6YNRRyFjjdOfH0YYZMJSkIlw4drBKLB8EaXNS4XrWU';
@@ -62,6 +126,7 @@ class App extends Component {
     this.editTicket = this.editTicket.bind(this);
     this.showAllTickets = this.showAllTickets.bind(this);
     this.printTickets = this.printTickets.bind(this);
+    this.deleteTicket = this.deleteTicket.bind(this);
     this.showProductsByBottle = this.showProductsByBottle.bind(this);
     this.addProduct = this.addProduct.bind(this);
     this.showAllProducts = this.showAllProducts.bind(this);
@@ -172,7 +237,174 @@ class App extends Component {
     }
 
     async showTicketsByCustomer(_name){
-      const ticketsByCustomer = await tickets.find({customer: _name});
+      var ticketsByCustomer = [{}];
+      var ticketsByCustomer2 = [{}];
+      var ticketsByCustomer3 = [{}];
+      var ticketsByCustomer4 = [{}];
+      var i = 0;
+      if(_name === "Analytical Environment (P)"){
+        ticketsByCustomer = await tickets.find({customer: _name});
+        ticketsByCustomer2 = await tickets.find({customer: "Analytical Environment (T)"});
+        while(i < ticketsByCustomer2.length){
+          ticketsByCustomer.push(ticketsByCustomer2[i]);
+          i++;
+        }
+      }
+      else if(_name === "Analytical Environment (T)"){
+        ticketsByCustomer = await tickets.find({customer: _name});
+        ticketsByCustomer2 = await tickets.find({customer: "Analytical Environment (P)"});
+        while(i < ticketsByCustomer2.length){
+          ticketsByCustomer.push(ticketsByCustomer2[i]);
+          i++;
+        }
+      }
+      else if(_name === "Club At Longview (Q)"){
+        ticketsByCustomer = await tickets.find({customer: _name});
+        ticketsByCustomer2 = await tickets.find({customer: "Club At Longview (U)"});
+        while(i < ticketsByCustomer2.length){
+          ticketsByCustomer.push(ticketsByCustomer2[i]);
+          i++;
+        }
+      }
+      else if(_name === "Club At Longview (U)"){
+        ticketsByCustomer = await tickets.find({customer: _name});
+        ticketsByCustomer2 = await tickets.find({customer: "Club At Longview (Q)"});
+        while(i < ticketsByCustomer2.length){
+          ticketsByCustomer.push(ticketsByCustomer2[i]);
+          i++;
+        }
+      }
+      else if(_name === "The Georgian Terrace (R)"){
+        ticketsByCustomer = await tickets.find({customer: _name});
+        ticketsByCustomer2 = await tickets.find({customer: "The Georgian Terrace (V)"});
+        while(i < ticketsByCustomer2.length){
+          ticketsByCustomer.push(ticketsByCustomer2[i]);
+          i++;
+        }
+      }
+      else if(_name === "The Georgian Terrace (V)"){
+        ticketsByCustomer = await tickets.find({customer: _name});
+        ticketsByCustomer2 = await tickets.find({customer: "The Georgian Terrace (R)"});
+        while(i < ticketsByCustomer2.length){
+          ticketsByCustomer.push(ticketsByCustomer2[i]);
+          i++;
+        }
+      }
+      else if(_name === "Glenn Hotel (P)"){
+        ticketsByCustomer = await tickets.find({customer: _name});
+        ticketsByCustomer2 = await tickets.find({customer: "Glenn Hotel (T)"});
+        while(i < ticketsByCustomer2.length){
+          ticketsByCustomer.push(ticketsByCustomer2[i]);
+          i++;
+        }
+      }
+      else if(_name === "Glenn Hotel (T)"){
+        ticketsByCustomer = await tickets.find({customer: _name});
+        ticketsByCustomer2 = await tickets.find({customer: "Glenn Hotel (P)"});
+        while(i < ticketsByCustomer2.length){
+          ticketsByCustomer.push(ticketsByCustomer2[i]);
+          i++;
+        }
+      }
+      else if(_name === "Guffey's Cleaners (R)"){
+        ticketsByCustomer = await tickets.find({customer: _name});
+        ticketsByCustomer2 = await tickets.find({customer: "Guffey's Cleaners (V)"});
+        ticketsByCustomer3 = await tickets.find({customer: "Guffey's Store (R)"});
+        ticketsByCustomer4 = await tickets.find({customer: "Guffey's Store (V)"});
+        while(i < ticketsByCustomer2.length){
+          ticketsByCustomer.push(ticketsByCustomer2[i]);
+          i++;
+        }
+        i=0;
+        while(i < ticketsByCustomer3.length){
+          ticketsByCustomer.push(ticketsByCustomer3[i]);
+          i++;
+        }
+        i=0;
+        while(i < ticketsByCustomer4.length){
+          ticketsByCustomer.push(ticketsByCustomer4[i]);
+          i++;
+        }
+      }
+      else if(_name === "Guffey's Cleaners (V)"){
+        ticketsByCustomer = await tickets.find({customer: _name});
+        ticketsByCustomer2 = await tickets.find({customer: "Guffey's Cleaners (R)"});
+        ticketsByCustomer3 = await tickets.find({customer: "Guffey's Store (R)"});
+        ticketsByCustomer4 = await tickets.find({customer: "Guffey's Store (V)"});
+        while(i < ticketsByCustomer2.length){
+          ticketsByCustomer.push(ticketsByCustomer2[i]);
+          i++;
+        }
+        i=0;
+        while(i < ticketsByCustomer3.length){
+          ticketsByCustomer.push(ticketsByCustomer3[i]);
+          i++;
+        }
+        i=0;
+        while(i < ticketsByCustomer4.length){
+          ticketsByCustomer.push(ticketsByCustomer4[i]);
+          i++;
+        }
+      }
+      else if(_name === "Guffey's Store (R)"){
+        ticketsByCustomer = await tickets.find({customer: _name});
+        ticketsByCustomer2 = await tickets.find({customer: "Guffey's Cleaners (R)"});
+        ticketsByCustomer3 = await tickets.find({customer: "Guffey's Cleaners (V)"});
+        ticketsByCustomer4 = await tickets.find({customer: "Guffey's Store (V)"});
+        while(i < ticketsByCustomer2.length){
+          ticketsByCustomer.push(ticketsByCustomer2[i]);
+          i++;
+        }
+        i=0;
+        while(i < ticketsByCustomer3.length){
+          ticketsByCustomer.push(ticketsByCustomer3[i]);
+          i++;
+        }
+        i=0;
+        while(i < ticketsByCustomer4.length){
+          ticketsByCustomer.push(ticketsByCustomer4[i]);
+          i++;
+        }
+      }
+      else if(_name === "Guffey's Store (V)"){
+        ticketsByCustomer = await tickets.find({customer: _name});
+        ticketsByCustomer2 = await tickets.find({customer: "Guffey's Cleaners (R)"});
+        ticketsByCustomer3 = await tickets.find({customer: "Guffey's Cleaners (V)"});
+        ticketsByCustomer4 = await tickets.find({customer: "Guffey's Store (R)"});
+        while(i < ticketsByCustomer2.length){
+          ticketsByCustomer.push(ticketsByCustomer2[i]);
+          i++;
+        }
+        i=0;
+        while(i < ticketsByCustomer3.length){
+          ticketsByCustomer.push(ticketsByCustomer3[i]);
+          i++;
+        }
+        i=0;
+        while(i < ticketsByCustomer4.length){
+          ticketsByCustomer.push(ticketsByCustomer4[i]);
+          i++;
+        }
+      }
+      else if(_name === "Sun In My Belly (P)"){
+        ticketsByCustomer = await tickets.find({customer: _name});
+        ticketsByCustomer2 = await tickets.find({customer: "Sun In My Belly (T)"});
+        while(i < ticketsByCustomer2.length){
+          ticketsByCustomer.push(ticketsByCustomer2[i]);
+          i++;
+        }
+      }
+      else if(_name === "Sun In My Belly (T)"){
+        ticketsByCustomer = await tickets.find({customer: _name});
+        ticketsByCustomer2 = await tickets.find({customer: "Sun In My Belly (P)"});
+        while(i < ticketsByCustomer2.length){
+          ticketsByCustomer.push(ticketsByCustomer2[i]);
+          i++;
+        }
+      }
+      else{
+      ticketsByCustomer = await tickets.find({customer: _name});
+      }
       const newTicketData = await ticketsByCustomer.map(function(values){
         return(
           {...values}
@@ -190,7 +422,7 @@ class App extends Component {
         )
       });
       this.setState({ticketData: newTicketData});
-    
+
     }
 
     async showTicketsByDate(_date){
@@ -205,15 +437,227 @@ class App extends Component {
     }
 
     async addTicket(_customer, _number, _cases, _date){
+      if(_date.length !== 8 || _date.charAt(2) !== "/" || _date.charAt(5) !== "/"){
+        alert("Date Format Must Be MM/DD/YY");
+        return;
+      }
       await tickets.insertOne({
         customer: _customer,
         qbNumber: _number,
         cases: _cases,
         date: _date
       });
-      const newTicket = await tickets.find({qbNumber: _number});
-      print({printable: newTicket, properties:['customer', 'qbNumber', 'cases', 'date'], type: 'json'});
-      alert("Ticket Number "+_number+" Added");
+      if(_customer === "1280 West Peachtree Partners"){
+        printJS({printable: WestPeachtreeBOL, type: 'image'});
+      }
+      else if(_customer === "The American Hotel"){
+        printJS({printable: AmericanHotelBOL, type: 'image'});
+      }
+      else if(_customer === "Analytical Environment (P)" || _customer === "Analytical Environment (T)"){
+        printJS({printable: AnalyticalEnvironmentBOL, type: 'image'});
+      }
+      else if(_customer === "Atlanta Athletic Club"){
+        printJS({printable: AtlantaAthleticClubBOL, type: 'image'});
+      }
+      else if(_customer === "Atlanta History Center"){
+        printJS({printable: AtlantaHistoryCenterBOL, type: 'image'});
+      }
+      else if(_customer === "Atlanta Life"){
+        printJS({printable: AtlantaLifeBOL, type: 'image'});
+      }
+      else if(_customer === "Beautifully You"){
+        printJS({printable: BeautifullyYouBOL, type: 'image'});
+      }
+      else if(_customer === "Bold American #1"){
+        printJS({printable: BoldAmerican1BOL, type: 'image'});
+      }
+      else if(_customer === "Bold American #2"){
+        printJS({printable: BoldAmerican2BOL, type: 'image'});
+      }
+      else if(_customer === "Bova"){
+        printJS({printable: BovaBOL, type: 'image'});
+      }
+      else if(_customer === "The Buckhead Club"){
+        printJS({printable: BuckheadClubBOL, type: 'image'});
+      }
+      else if(_customer === "Buckhead Plastic Surgery"){
+        printJS({printable: BuckheadPlasticSurgeryBOL, type: 'image'});
+      }
+      else if(_customer === "Cactus Car Wash"){
+        printJS({printable: CactusCarWashBOL, type: 'image'});
+      }
+      else if(_customer === "Cherokee Town And Country Club"){
+        printJS({printable: CherokeeTownAndCCBOL, type: 'image'});
+      }
+      else if(_customer === "Club At Longview (Q)" || _customer === "Club At Longview (U)"){
+        printJS({printable: ClubAtLongviewBOL, type: 'image'});
+      }
+      else if(_customer === "Club Platinum"){
+        printJS({printable: ClubPlatinumBOL, type: 'image'});
+      }
+      else if(_customer === "The Commerce Club"){
+        printJS({printable: CommerceClubBOL, type: 'image'});
+      }
+      else if(_customer === "Dunson Dental Design"){
+        printJS({printable: DunsonDentalBOL, type: 'image'});
+      }
+      else if(_customer === "Dunwoody Country Club"){
+        printJS({printable: DunwoodyCCBOL, type: 'image'});
+      }
+      else if(_customer === "E 48th St Market"){
+        printJS({printable: E48thStBOL, type: 'image'});
+      }
+      else if(_customer === "Eastern National Kennesaw"){
+        printJS({printable: EasternNationalKennesawBOL, type: 'image'});
+      }
+      else if(_customer === "Eastern National MLK"){
+        printJS({printable: EasternNationalMLKBOL, type: 'image'});
+      }
+      else if(_customer === "Easy Rental"){
+        printJS({printable: EasyRentalBOL, type: 'image'});
+      }
+      else if(_customer === "The Georgian Terrace (R)" || _customer === "The Georgian Terrace (V)"){
+        printJS({printable: GeorgianTerraceBOL, type: 'image'});
+      }
+      else if(_customer === "Glenn Hotel (P)" || _customer === "Glenn Hotel (T)"){
+        printJS({printable: GlennHotelBOL, type: 'image'});
+      }
+      else if(_customer === "Goldstein Dental"){
+        printJS({printable: GoldsteinDentalBOL, type: 'image'});
+      }
+      else if(_customer === "Golf Club of Tennessee"){
+        printJS({printable: GolfClubTNBOL, type: 'image'});
+      }
+      else if(_customer === "Guffey's Cleaners (R)" || _customer === "Guffey's Cleaners (V)"){
+        printJS({printable: GuffeysCleanersBOL, type: 'image'});
+      }
+      else if(_customer === "Guffey's Store (R)" || _customer === "Guffey's Store (V)"){
+        printJS({printable: GuffeysStoreBOL, type: 'image'});
+      }
+      else if(_customer === "Henri's Bakery Buckhead"){
+        printJS({printable: HenrisBuckheadBOL, type: 'image'});
+      }
+      else if(_customer === "Henri's Bakery Marietta"){
+        printJS({printable: HenrisMariettaBOL, type: 'image'});
+      }
+      else if(_customer === "Herni's Midtown"){
+        printJS({printable: HenrisMidtownBOL, type: 'image'});
+      }
+      else if(_customer === "Henri's Bakery Sandy Springs"){
+        printJS({printable: HenrisSandySpringsBOL, type: 'image'});
+      }
+      else if(_customer === "Hotel Ballast"){
+        printJS({printable: HotelBallastBOL, type: 'image'});
+      }
+      else if(_customer === "Istanblu"){
+        printJS({printable: IstanbluBOL, type: 'image'});
+      }
+      else if(_customer === "Johnson And Freeman LLC"){
+        printJS({printable: JohnsonFreemanBOL, type: 'image'});
+      }
+      else if(_customer === "Le Meridien"){
+        printJS({printable: LeMeridienBOL, type: 'image'});
+      }
+      else if(_customer === "Mall of Georgia Mazda"){
+        printJS({printable: MallOfGAMazdaBOL, type: 'image'});
+      }
+      else if(_customer === "Mall of Georgia Mini"){
+        printJS({printable: MallOfGAMiniBOL, type: 'image'});
+      }
+      else if(_customer === "Muss And Turner's"){
+        printJS({printable: MussAndTurnersBOL, type: 'image'});
+      }
+      else if(_customer === "Dr Peter A Pate, DDS"){
+        printJS({printable: PateDDSBOL, type: 'image'});
+      }
+      else if(_customer === "Pure Atlanta"){
+        printJS({printable: PureAtlantaBOL, type: 'image'});
+      }
+      else if(_customer === "RBM of Alpharetta"){
+        printJS({printable: RBMofAlpharettaBOL, type: 'image'});
+      }
+      else if(_customer === "RBM of Atlanta"){
+        printJS({printable: RBMofAtlantaBOL, type: 'image'});
+      }
+      else if(_customer === "Riverclub Golf"){
+        printJS({printable: RiverClubGolfBOL, type: 'image'});
+      }
+      else if(_customer === "Roswell Provisions"){
+        printJS({printable: RoswellProvisionsBOL, type: 'image'});
+      }
+      else if(_customer === "Savory Gourmet"){
+        printJS({printable: SavoryGourmetBOL, type: 'image'});
+      }
+      else if(_customer === "Scottsdale Farms"){
+        printJS({printable: ScottsdaleFarmsBOL, type: 'image'});
+      }
+      else if(_customer === "Souper Jenny Brookhaven"){
+        printJS({printable: SouperJennyBrookhavenBOL, type: 'image'});
+      }
+      else if(_customer === "Souper Jenny Buckhead"){
+        printJS({printable: SouperJennyBuckheadBOL, type: 'image'});
+      }
+      else if(_customer === "Souper Jenny Decatur"){
+        printJS({printable: SouperJennyDecaturBOL, type: 'image'});
+      }
+      else if(_customer === "Souper Jenny Roswell"){
+        printJS({printable: SouperJennyRoswellBOL, type: 'image'});
+      }
+      else if(_customer === "Souper Jenny West Side"){
+        printJS({printable: SouperJennyWestSideBOL, type: 'image'});
+      }
+      else if(_customer === "Spinal Check Foundation"){
+        printJS({printable: SpinalCheckBOL, type: 'image'});
+      }
+      else if(_customer === "St. Ive's Country Club"){
+        printJS({printable: StIvesBOL, type: 'image'});
+      }
+      else if(_customer === "St. Marlo Country Club"){
+        printJS({printable: StMarloBOL, type: 'image'});
+      }
+      else if(_customer === "Summit Chase Country Club"){
+        printJS({printable: SummitChaseBOL, type: 'image'});
+      }
+      else if(_customer === "Sun In My Belly (P)" || _customer === "Sun In My Belly (T)"){
+        printJS({printable: SummitChaseBOL, type: 'image'});
+      }
+      else if(_customer === "Watkins Funeral Home"){
+        printJS({printable: WatkinsFuneralBOL, type: 'image'});
+      }
+      else if(_customer === "Winship Cancer Institute"){
+        printJS({printable: WinshipBOL, type: 'image'});
+      }
+      else if(_customer === "Woodstock Furniture Acworth"){
+        printJS({printable: WoodstockFurnitureAcworthBOL, type: 'image'});
+      }
+      else if(_customer === "Woodstock Furniture Hiram"){
+        printJS({printable: WoodstockFurnitureHiramBOL, type: 'image'});
+      }
+      else if(_customer === "Worthmore Jewelers Atlanta"){
+        printJS({printable: WorthmoreJewelersAtlantaBOL, type: 'image'});
+      }
+      else if(_customer === "Worthmore Jewelers Decatur"){
+        print({printable: WorthmoreJewelersDecaturBOL, type: 'image'});
+      }
+      else{
+        alert("Customer Selection Error");
+      }
+
+    }
+
+    async deleteTicket(_customer, _date){
+      await tickets.deleteOne({"customer": _customer, "date": _date});
+      //await tickets.deleteMany({"date": "02/20/21"});
+      alert("Ticket Deleted");
+    }
+
+    async addRouteTickets(_customer, _number, _cases, _date){
+      await tickets.insertOne({
+        customer: _customer,
+        qbNumber: _number,
+        cases: _cases,
+        date: _date
+      });
     }
 
     async showAllTickets(){
@@ -241,14 +685,47 @@ class App extends Component {
       alert("Ticket Updated");
     }
 
-    async printTickets(_route){
-      const routeCustomers = await customers.find({route: _route});
-      var i = 0;
-      while(i<routeCustomers.length){
-        console.log(routeCustomers[i].name);//replace this with printing functionality
-        i++;
+    async printTickets(_route, _date){
+      if(_date.length !== 8 || _date.charAt(2) !== "/" || _date.charAt(5) !== "/"){
+        alert("Date Format Must Be MM/DD/YY");
+        return;
       }
-
+      else{
+            const routeCustData = await customers.find({route: _route});
+            var i = 0;
+            while(i < routeCustData.length){
+            var custName = routeCustData[i].name;
+            this.addRouteTickets(custName, "", "", _date);
+            i++;
+            }
+            if(_route === "P"){
+              printJS({printable: [GlennHotelBOL, GlennHotelBOL, SunInMyBellyBOL, SunInMyBellyBOL, EasternNationalMLKBOL, EasternNationalMLKBOL, AmericanHotelBOL, AmericanHotelBOL, CommerceClubBOL, CommerceClubBOL, WestPeachtreeBOL, WestPeachtreeBOL, AnalyticalEnvironmentBOL, AnalyticalEnvironmentBOL, HotelBallastBOL, HotelBallastBOL, ClubPlatinumBOL, ClubPlatinumBOL], type: 'image'});
+            }
+            else if(_route === "Q"){
+              printJS({printable: [AtlantaAthleticClubBOL, AtlantaAthleticClubBOL, SummitChaseBOL, SummitChaseBOL, StMarloBOL, StMarloBOL, StIvesBOL, StIvesBOL, BovaBOL, BovaBOL, ClubAtLongviewBOL, ClubAtLongviewBOL, GolfClubTNBOL, GolfClubTNBOL], type: 'image'});
+            }
+            else if(_route === "R"){
+              printJS({printable: [GuffeysStoreBOL, GuffeysStoreBOL, GuffeysCleanersBOL, GuffeysCleanersBOL, GeorgianTerraceBOL, GeorgianTerraceBOL, BuckheadClubBOL, BuckheadClubBOL, SouperJennyBuckheadBOL, SouperJennyBuckheadBOL, HenrisBuckheadBOL, HenrisBuckheadBOL, WorthmoreJewelersAtlantaBOL, WorthmoreJewelersAtlantaBOL, PureAtlantaBOL, PureAtlantaBOL, WorthmoreJewelersDecaturBOL, WorthmoreJewelersDecaturBOL], type: 'image'});
+            }
+            else if(_route === "S"){
+              printJS({printable: [RBMofAtlantaBOL, RBMofAtlantaBOL, HenrisMariettaBOL, HenrisMariettaBOL, WoodstockFurnitureAcworthBOL, WoodstockFurnitureAcworthBOL, WoodstockFurnitureHiramBOL, WoodstockFurnitureHiramBOL, EasternNationalKennesawBOL, EasternNationalKennesawBOL, MussAndTurnersBOL, MussAndTurnersBOL, SpinalCheckBOL, SpinalCheckBOL], type: 'image'});
+            }
+            else if(_route === "T"){
+              printJS({printable: [GlennHotelBOL, GlennHotelBOL, WatkinsFuneralBOL, WatkinsFuneralBOL, AtlantaLifeBOL, AtlantaLifeBOL, SunInMyBellyBOL, SunInMyBellyBOL, HenrisMidtownBOL, HenrisMidtownBOL, SouperJennyWestSideBOL, SouperJennyWestSideBOL, JohnsonFreemanBOL, JohnsonFreemanBOL, BoldAmerican1BOL, BoldAmerican1BOL, BoldAmerican2BOL, BoldAmerican2BOL, AnalyticalEnvironmentBOL, AnalyticalEnvironmentBOL, EasyRentalBOL, EasyRentalBOL, BeautifullyYouBOL, BeautifullyYouBOL], type: 'image'});
+            }
+            else if (_route === "U"){
+              printJS({printable: [RBMofAlpharettaBOL, RBMofAlpharettaBOL, ScottsdaleFarmsBOL, ScottsdaleFarmsBOL, SavoryGourmetBOL, SavoryGourmetBOL, SouperJennyRoswellBOL, SouperJennyRoswellBOL, CactusCarWashBOL, CactusCarWashBOL, CherokeeTownAndCCBOL, CherokeeTownAndCCBOL, RoswellProvisionsBOL, RoswellProvisionsBOL, ClubAtLongviewBOL, ClubAtLongviewBOL], type: 'image'});
+            }
+            else if(_route === "V"){
+              printJS({printable: [GuffeysStoreBOL, GuffeysStoreBOL, GuffeysCleanersBOL, GuffeysCleanersBOL, WinshipBOL, WinshipBOL, GeorgianTerraceBOL, GeorgianTerraceBOL, GoldsteinDentalBOL, GoldsteinDentalBOL, LeMeridienBOL, LeMeridienBOL, DunwoodyCCBOL, DunwoodyCCBOL, IstanbluBOL, IstanbluBOL, SouperJennyBrookhavenBOL, SouperJennyBrookhavenBOL, SouperJennyDecaturBOL, SouperJennyDecaturBOL, HenrisSandySpringsBOL, HenrisSandySpringsBOL, PateDDSBOL, PateDDSBOL, AtlantaHistoryCenterBOL, AtlantaHistoryCenterBOL, E48thStBOL, E48thStBOL, DunsonDentalBOL, DunsonDentalBOL, BuckheadPlasticSurgeryBOL, BuckheadPlasticSurgeryBOL], type: 'image'});
+            }
+            else if(_route === "W"){
+              printJS({printable: [MallOfGAMazdaBOL, MallOfGAMazdaBOL, MallOfGAMiniBOL, MallOfGAMiniBOL, RiverClubGolfBOL, RiverClubGolfBOL], type: 'image'});
+            }
+            else{
+              alert("Route Selection Error");
+            }
+          }
     }
 
     async showProductsByBottle(_bottle){
@@ -469,7 +946,7 @@ class App extends Component {
           </div>
           <div className = "App-table">
             <HomeButton homePage={this.homePage} />
-            <EditTicket editTicket={this.editTicket} />
+            <EditTicket editTicket={this.editTicket} deleteTicket={this.deleteTicket}/>
           </div>
           </div>
           );

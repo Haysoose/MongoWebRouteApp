@@ -41,6 +41,7 @@ export default class EditTicket extends Component {
     constructor(props){
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        this.handleDeleteClick = this.handleDeleteClick.bind(this);
     }
 
     handleClick(event) {
@@ -50,6 +51,13 @@ export default class EditTicket extends Component {
         const newNumber = document.getElementById('editTicketNumber');
         const newCases = document.getElementById('editTicketCases');
         this.props.editTicket(newCustomerName.value, newDate.value, newNumber.value, newCases.value);
+    }
+
+    handleDeleteClick(event) {
+        event.preventDefault();
+        const newCustomerName = document.getElementById('editTicketCustomer');
+        const newDate = document.getElementById('editTicketDate');
+        this.props.deleteTicket(newCustomerName.value, newDate.value);
     }
 
     render(){
@@ -130,11 +138,13 @@ export default class EditTicket extends Component {
                         <option value="Worthmore Jewelers Atlanta">Worthmore Jewelers Atlanta</option>
                         <option value="Worthmore Jewelers Decatur">Worthmore Jewelers Decatur</option>
                     </Select>
-                    <Input id="editTicketDate" placeholder="Date"></Input>
+                    <Input id="editTicketDate" placeholder="MM/DD/YY"></Input>
                     <H5>Enter Values To Be Edited</H5>
                     <Input id="editTicketNumber" placeholder="Quickbooks Sales Order Number"></Input>
                     <Input id="editTicketCases" placeholder="Cases"></Input>
                     <Button onClick = {this.handleClick}>Edit Ticket</Button>
+                    <H5>DELETE TICKET BELOW</H5>
+                    <Button onClick = {this.handleDeleteClick}>Delete Ticket</Button>
                 </Div> </>
         )
     }

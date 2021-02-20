@@ -28,6 +28,15 @@ const Button = styled.button`
     font-size: 1rem;
 `
 
+const Input = styled.input`
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #3a5896;
+    font-size: 1rem;
+`
+
 
 export default class PrintRoute extends Component {
     constructor(props){
@@ -38,7 +47,8 @@ export default class PrintRoute extends Component {
     handleClick(event) {
         event.preventDefault();
         const routeToPrint = document.getElementById('routeOption');
-        this.props.printTickets(routeToPrint.value);
+        const routeDate = document.getElementById('routeDate');
+        this.props.printTickets(routeToPrint.value, routeDate.value);
     }
 
     render() {
@@ -46,17 +56,18 @@ export default class PrintRoute extends Component {
             <Div>
                 <H5>Choose Route</H5>
                 <Select name="routeOption" id="routeOption">
-                            <option value="P">P Route</option>
-                            <option value="Q">Q Route</option>
-                            <option value="R">R Route</option>
-                            <option value="S">S Route</option>
-                            <option value="T">T Route</option>
-                            <option value="U">U Route</option>
-                            <option value="V">V Route</option>
-                            <option value="W">W Route</option>
-                            <option value="Freight">Freight</option>
-                        </Select>
-                        <Button onClick={this.handleClick}>Print Route</Button>
+                    <option value="P">P Route</option>
+                    <option value="Q">Q Route</option>
+                    <option value="R">R Route</option>
+                    <option value="S">S Route</option>
+                    <option value="T">T Route</option>
+                    <option value="U">U Route</option>
+                    <option value="V">V Route</option>
+                    <option value="W">W Route</option>
+                    <option value="Freight">Freight</option>
+                </Select>
+                <Input id="routeDate" placeholder="MM/DD/YY"></Input>
+                <Button onClick={this.handleClick}>Print Route</Button>
             </Div>
         )
     }
